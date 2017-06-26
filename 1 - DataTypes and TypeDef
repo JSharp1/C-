@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+/*
+ * Data Types, TypeDef
+*/
+
+int main()
+{
+    //---------------------------------------------------------------------------------
+
+    /*
+    * DataTypes
+    */
+
+    char a ='a';//1 byte, range: -128 to 127 or 0 to 255
+    cout << "value of char " << a << ", address of char " << &a << endl;
+    // unsigned: 0 to 255, signed: -128 to
+
+    int b = 1;//4 bytes, range: -2147483648 to 2147483647
+    cout << "value of int " << b << ", address of int " << &b << endl;
+    //unsigned: 0 to 4294967295, signed: -2147483648 to 2147483647
+
+    short c = 2;//2 bytes, range: -32768 to 32767
+    cout << "value of short " << c << ", address of short " << &c << endl;
+    //unsigned: 0 to 65,535, signed: -32768 to 32767
+
+    float d = 3;//4 bytes, range: +/- 3.4e +/- 38 (~7 digits)
+    cout << "value of float " << d << ", address of float " << &d << endl;
+
+    double e = 4;//8 bytes, range: +/- 1.7e +/- 308 (~15 digits)
+    //unsigned: , signed:
+    cout << "value of double " << e << ", address of double " << &e << endl;
+
+    long double f = 5;// +/- 1.7e +/- 308 (~15 digits)
+    cout << "value of long double " << e << ", address of long double " << &e << endl;
+
+    //---------------------------------------------------------------------------------
+
+    /* TypeDef
+     * allows a dateType to be given a new name i.e.
+     * typedef type newName
+     * useage:
+     */
+
+     typedef int intsRock;
+     intsRock myVariable = 6;
+     cout << "new type def intsRock: " << myVariable << endl;
+
+    return 0;
+}
