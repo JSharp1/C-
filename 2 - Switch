@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    /*
+     * All instructions will be carried out after the switch case
+     * i.e. if x = 0; all case statements will be carried out
+     *      if x = 20; the last 2 cases will be executed
+     *
+     * N.B. break statements can be used to stop this behaviour
+     *      only int and char dataTypes can be used
+     *
+     * When using char for switch case statement
+     * i.e. char x = 97;
+     *      the switch case statement would be:
+     *      case 'a':
+     *          do something
+     *
+     *      97 as this is value assigned in ascii
+     *
+     */
+
+    //int x = 0;
+    char x = 97;//ascii for 'a'
+
+    switch (x)
+    {
+    case 'a':
+        cout << "x = 'a' " << endl;
+        break;
+    case 0:
+        cout << "x = 0 " << endl;
+    case 10:
+        cout << "x = 10 " << endl;
+    case 20:
+        cout << "x = 20 " << endl;
+
+    default:
+        cout << "no match" << endl;
+    }
+
+    return 0;
+}
