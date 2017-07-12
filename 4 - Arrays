@@ -21,8 +21,8 @@ int main()
     cout << "array[3]: " << array[3] << ", address in mem: " << &array[3] << endl;
 
 
-    // here we see that the start address of the array
-    // is equal to the array,
+    // here we see that the forst elm of the array
+    // is equal to the start address of the array,
     if(&array[0] == array){
         cout << "&array[0] == array: true" << endl;
     }
