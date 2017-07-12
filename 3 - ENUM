@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+
+//Enumerated types http://www.learncpp.com/cpp-tutorial/45-enumerated-types/
+//typically used for reporting errors
+
+int main()
+{
+    /*
+     * Naming convention
+     * The enum identifers usually start with a capital letter,
+     * with the enumerators named using all capital letters.
+     * N.B. if two seperate enum identifiers have the same global enumerator variable name
+     * an error will occur, therefore it is best practice to se a PREFIX i.e. COLOUR_BLACK
+     */
+
+    // Declare a new enumeration named Color
+    enum Color
+    {
+        // Here are the enumerators
+        // These define all the possible values this type can hold
+        // Each enumerator is separated by a comma, not a semicolon
+        COLOR_BLACK, // assigned 0
+        COLOR_RED, // assigned 1
+        COLOR_BLUE, // assigned 2
+        COLOR_GREEN, // assigned 3
+        COLOR_WHITE, // assigned 4
+        COLOR_CYAN, // assigned 5
+        COLOR_YELLOW, // assigned 6
+        COLOR_MAGENTA, // assigned 7
+        // see note about trailing comma on the last enumerator below
+    }; // however the enum itself must end with a semicolon
+
+    // Define a few variables of enumerated type Color
+    Color paint = COLOR_BLACK;
+    Color house(COLOR_BLUE);
+
+    /* Declaring an enumeration does not allocate any memory.
+     * When a variable of the enumerated type is defined (such as variable paint in the example above),
+     * memory is allocated for that variable at that time.
+     *
+     * Each enumerator is automatically assigned an integer value based on its position in the enumeration list.
+     * By default, the first enumerator is assigned the integer value 0,
+     * and each subsequent enumerator has a value one greater than the previous enumerator:
+     */
+    Color paint2(COLOR_WHITE);
+    cout << "paint value = " << paint << ", house value = " << house << ", paint2 value = " << paint2 <<endl;
+
+
+    /*
+     * Define a new enum named Animal
+     * Any non-defined enumerators are given a value one greater than the previous enumerator.
+     *
+     * Note in this case, ANIMAL_HORSE and ANIMAL_GIRAFFE have been given the same value. When this happens,
+     * the enumerations become non-distinct -- essentially, ANIMAL_HORSE and ANIMAL_GIRAFFE are interchangeable.
+     * Although C++ allows it, assigning the same value to two enumerators in the same enumeration should generally be avoided.
+     *
+     *   Best practice: Don’t assign specific values to your enumerators.
+     *   Rule: Don’t assign the same value to two enumerators in the same enumeration unless there’s a very good reason.
+     *
+     *
+     */
+    enum Animal
+    {
+        ANIMAL_CAT = -3,
+        ANIMAL_DOG, // assigned -2
+        ANIMAL_PIG, // assigned -1
+        ANIMAL_HORSE = 5,
+        ANIMAL_GIRAFFE = 5, // shares same value as ANIMAL_HORSE
+        ANIMAL_CHICKEN // assigned 6
+    };
+
+
+
+    /* Enum type evaluation and input/output
+     *
+     * Because enumerated values evaluate to integers, they can be assigned to integer variables.
+     * This means they can also be output (as integers), since std::cout knows how to output integers.
+     *
+     * Because enumerated values evaluate to integers, they can be assigned to integer variables.
+     * This means they can also be output (as integers), since std::cout knows how to output integers.
+     */
+
+    int mypet = ANIMAL_PIG;
+    cout <<"mypet variable = "<< ANIMAL_HORSE <<", mypet = "<< mypet << endl; // evaluates to integer before being passed to std::cout
+    //output is 5
+
+    /*
+     * Changing the variable value
+     *
+     * The compiler will not implicitly convert an integer to an enumerated value. The following will produce a compiler error:
+     * Animal animal = 5; // will cause compiler error
+     * However, you can force it to do so via a static_cast:
+     *
+     */
+
+    Color color = static_cast<Color>(5); // ugly
+
+    cout << color << endl;
+    
+    return 0;
+}
