@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
 /*
- * each element in the array is four bites in size
+ * each element in the array is four bits in size
  * the size of the array must be set before compilation
  */
 
@@ -20,9 +20,8 @@ int main()
     cout << "array[2]: " << array[2] << ", address in mem: " << &array[2] << endl;
     cout << "array[3]: " << array[3] << ", address in mem: " << &array[3] << endl;
 
-
-    // here we see that the forst elm of the array
-    // is equal to the start address of the array,
+    // here we see that the start address of the array
+    // is equal to the array,
     if(&array[0] == array){
         cout << "&array[0] == array: true" << endl;
     }
@@ -32,6 +31,13 @@ int main()
         cout << "&array[1] == array: false" << endl;
     }
 
+    /*
+    2D arrays
+    As each element is four bits the expected size of a 2,2 array is 16 bits- 4 bytes
+    */
+
+    int array2D[2][2] = {0};
+    cout << "sizeof(array2D): " << sizeof(array2D) << endl;
 
     return 0;
 }
