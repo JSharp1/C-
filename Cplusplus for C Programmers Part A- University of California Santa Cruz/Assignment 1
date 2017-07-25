@@ -1,0 +1,63 @@
+/* Convert this program to C++
+    * change to C++ io
+    * change to one line comments
+    * change defines of constants to const
+    * change array to vector<>
+    * inline any short function
+    
+
+#include <stdio.h>
+#define N 40
+
+    void sum(int*p, int n, int d[])
+    {
+        int i;
+        *p = 0;
+        for(i = 0; i < n; ++i)
+            *p = *p + d[i];
+    }
+
+    int main()
+    {
+        int i;
+        int accum = 0;
+        int data[N];
+        for(i = 0; i < N; ++i)
+            data[i] = i;
+
+        sum(&accum, N, data);
+        printf("sum is %d\n", accum);
+    return 0;
+}
+*/
+
+
+#include <iostream>//defines standard input output stream objects
+#include <vector>//vectors are sequence containers representing arrays that can change in size
+using namespace std;//allows for custom libaries to be used
+
+const int N = 40;//constants cannot be alterd by the program (c version is #define)
+int accum = 0;
+
+/*
+ * Inline functions, the basic idea is to save time at cost of space.
+ * At compilation where ever a function is called the compiler will replace the function call
+ * with the actual code, this can create very large programs.
+ */
+
+inline void sum(int &accum, vector<int> d){//here we write to accums address in memory and create a vector of type int
+    for(int i = 0; i < d.size(); i++){
+        accum+=d[i];//loop over all elements in the vector and sum
+    }
+}
+
+int main(){
+    int accum = 0;
+    vector<int> data(N);
+    for(int i = 0; i < N; ++i){//create data
+        data[i] = i;
+    }
+    sum(accum, data);//call function
+    cout << accum << endl;//print 
+    return 0;
+}
